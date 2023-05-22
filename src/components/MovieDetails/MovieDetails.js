@@ -1,6 +1,6 @@
 
-import {useEffect, useState, useRef } from 'react';
-import { NavLink, Outlet, useLocation, useParams, useNavigate } from 'react-router-dom';
+import {useEffect, useState } from 'react';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 
 import { fetchMoviesDetails } from 'components/fechApi';
 import BackLink from 'components/BackLink/BackLink'
