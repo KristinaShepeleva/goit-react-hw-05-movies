@@ -4,7 +4,9 @@ import SharedLayout from './SharedLayout/SharedLayout';
 
 const HomePage = lazy(() => import('./HomePage/homePage'));
 const Movies = lazy(() => import('../components/MoviesPage/MoviesPage'));
-
+const DetailsMoviePage = lazy(() => import('../components/MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('../components/Cast/Cast'));
+const Reviews = lazy(() => import('../components/Reviews/Reviews'));
 
 
 export const App = () => {
@@ -14,11 +16,12 @@ export const App = () => {
       <Route element={<SharedLayout />}>
         <Route index element={<HomePage />} />
         <Route path="/movies" element={<Movies />} />
-        {/* <Route path="/movies/:movieId" element={<DetailsMovie />}>
+        <Route path="/movies/:movieId" element={<DetailsMoviePage />}>
           <Route path="cast" element={<Cast />} />
-          <Route path="reviews" element={<Review />} /> */}
-        {/* </Route> */}
-        <Route path="*" element={<h1 style={{ color: 'red' }}>Error</h1>} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
+        <Route path="*" element={<p>This page was not found
+</p>} />
       </Route>
     </Routes>
     </div>
@@ -28,24 +31,3 @@ export const App = () => {
 
 
 
-// const Home = lazy(() => import('../pages/Home'));
-// const Movies = lazy(() => import('../pages/Movies'));
-// const DetailsMovie = lazy(() => import('../pages/DetailsMovie'));
-// const Cast = lazy(() => import('./Cast/Cast'));
-// const Review = lazy(() => import('./Review/Review'));
-
-// export const App = () => {
-//   return (
-//     <Routes>
-//       <Route element={<Layout />}>
-//         <Route index element={<Home />} />
-//         <Route path="/movies" element={<Movies />} />
-//         <Route path="/movies/:movieId" element={<DetailsMovie />}>
-//           <Route path="cast" element={<Cast />} />
-//           <Route path="reviews" element={<Review />} />
-//         </Route>
-//         <Route path="*" element={<h1 style={{ color: 'red' }}>НЕ ЧІПАЙ URL</h1>} />
-//       </Route>
-//     </Routes>
-//   );
-// };

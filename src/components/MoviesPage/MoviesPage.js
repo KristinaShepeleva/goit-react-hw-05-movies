@@ -8,15 +8,15 @@ const Movies = () => {
   const [movies, setMovies] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams({});
+    const [searchParams, setSearchParams] = useSearchParams();
+    
     const query = searchParams.get('query');
     
   useEffect(() => {
+    if (query === "") return;
     if (query) {
-      getQueryMovies(query);
-      }
-      
-      if (query === "") return;
+      getMovies(query);
+      }   
   }, [query]);
 
 
@@ -26,19 +26,15 @@ const Movies = () => {
     setSearchParams({ query: form.elements.query.value });
     form.reset();
   };
-    
-    
-    
-    
-  async function getQueryMovies(query) {
+      
+  async function getMovies(query) {
     try {
      setLoading(true);
       const data = await getMoviesByQuery(query);
       setMovies(data);
       
     } catch {
-        setLoading(false);
-        setError(error);
+        setError('Ooops. Something went wrong...');
     }finally {
      setLoading(false);
     }
