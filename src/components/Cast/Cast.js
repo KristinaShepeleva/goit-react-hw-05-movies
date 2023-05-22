@@ -13,11 +13,11 @@ const Cast = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchCast();
+    fetchCast(movieId);
   }, [movieId]);
 
     
-    const fetchCast = async () => {
+    const fetchCast = async (movieId) => {
       try {
         setLoading(true);
         const dataCast = await fetchMoviesCredits(movieId);
