@@ -1,0 +1,15 @@
+.nav {
+ display: flex;
+ gap: 24px;
+ margin-bottom: 24px;
+ font-weight: 600;
+ 
+}
+
+.nav_link:hover {
+  color: blueviolet;
+}
+
+.nav_link:active {
+    color: blueviolet;
+}
