@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getMovies } from 'components/fechApi';
-import MoviesList from 'components/MoviesList/MoviesList'
+import { getMovies } from 'api/fechApi';
+import MoviesList from 'page/MoviesList/MoviesList'
 
 function HomePage() {
   const [movies, setMovies] = useState([]);

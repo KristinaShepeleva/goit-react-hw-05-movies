@@ -8,9 +8,6 @@
 }
 
 .nav_link:hover {
-  color: blueviolet;
+  color: rgb(124, 39, 204);;
 }
 
-.nav_link:active {
-    color: blueviolet;
-}

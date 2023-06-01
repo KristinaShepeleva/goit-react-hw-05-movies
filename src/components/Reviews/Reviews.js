@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMoviesReviews } from 'components/fechApi';
+import { fetchMoviesReviews } from 'api/fechApi';
 
 const Reviews = () => {
   const { movieId } = useParams();
 
   const [reviews, setReviews] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
+        setLoading(true);
         const res = await fetchMoviesReviews(movieId);
-        console.log(res);
         setReviews(res);
       } catch (error) {
         setError(error);
-      }
+      } finally {
+     setLoading(false);
+    }
     };
     fetchReviews();
   }, [movieId]);
@@ -24,6 +27,7 @@ const Reviews = () => {
   return (
     <>
       {error && <div>{error}</div>}
+      {loading && 'Loading ...'}
       <ul>
         {reviews.map(review => {
           return (
@@ -33,6 +37,8 @@ const Reviews = () => {
             </li>
           );
         })}
+        {reviews.length === 0 && <p>No reviews
+</p>}
       </ul>
      
     </>

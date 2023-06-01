@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMoviesCredits } from 'components/fechApi';
+import { fetchMoviesCredits } from 'api/fechApi';
 
 import NoImage from 'components/img/no-img.png' 
       
@@ -29,7 +29,6 @@ const Cast = () => {
       }
     };
     
-      console.log(cast);
   return (
     <>
       {loading && 'Loading...'}

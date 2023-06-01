@@ -2,7 +2,7 @@
 import {useEffect, useState } from 'react';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 
-import { fetchMoviesDetails } from 'components/fechApi';
+import { fetchMoviesDetails } from 'api/fechApi';
 import BackLink from 'components/BackLink/BackLink'
 
 import NoImage from 'components/img/no-img.png' 

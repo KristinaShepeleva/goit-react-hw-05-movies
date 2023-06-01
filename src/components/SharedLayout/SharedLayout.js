@@ -5,15 +5,19 @@ import Container from 'components/Container/Container';
 
 import css from 'components/SharedLayout/SharedLayout.module.css'
 
-
-
 const SharedLayout = () => {
   return (
    <Container>
       <header>
         <nav className={css.nav}>
-          <NavLink to="/" className={css.nav_link}>Home</NavLink>
-          <NavLink to="/movies" className={css.nav_link} >Movies</NavLink>
+          <NavLink
+            to="/" className={css.nav_link}
+            style={({ isActive }) => ({ color: isActive ? 'rgb(124, 39, 204)' : 'inherit' })}
+          >Home</NavLink>
+          <NavLink
+            to="/movies" className={css.nav_link}
+            style={({ isActive }) => ({ color: isActive ? 'rgb(124, 39, 204)' : 'inherit' })}
+          >Movies</NavLink>
         </nav>
       </header>
       <main>
